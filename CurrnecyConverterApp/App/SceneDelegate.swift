@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         
-        let navigation = UINavigationController(rootViewController: CurrenciesListViewController())
+        let navigation = UINavigationController(rootViewController: tabBarController())
         self.window?.rootViewController = navigation
         self.window?.makeKeyAndVisible()
 
@@ -51,6 +51,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func tabBarController() -> UITabBarController {
+        let tabBarController = UITabBarController()
+        
+        let CurrenciesListViewController = CurrenciesListViewController()
+        CurrenciesListViewController.tabBarItem.image = UIImage(systemName: "list.bullet.below.rectangle")
+        CurrenciesListViewController.tabBarItem.title = "List"
+        
+        UITabBar.appearance().tintColor = .white
+        UITabBar.appearance().unselectedItemTintColor = .gray
+        
+        tabBarController.setViewControllers([CurrenciesListViewController], animated: true)
+        
+        return tabBarController
+    }
 
 }
 
