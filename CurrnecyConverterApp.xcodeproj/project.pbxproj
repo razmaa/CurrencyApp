@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		157329BC2B5FE97300B2F9D5 /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 157329BB2B5FE97300B2F9D5 /* NetworkManager */; };
 		15F3415A2B5EFD01001E0E89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F341592B5EFD01001E0E89 /* AppDelegate.swift */; };
 		15F3415C2B5EFD01001E0E89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F3415B2B5EFD01001E0E89 /* SceneDelegate.swift */; };
 		15F341632B5EFD03001E0E89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15F341622B5EFD03001E0E89 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157329BC2B5FE97300B2F9D5 /* NetworkManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +155,9 @@
 			dependencies = (
 			);
 			name = CurrnecyConverterApp;
+			packageProductDependencies = (
+				157329BB2B5FE97300B2F9D5 /* NetworkManager */,
+			);
 			productName = CurrnecyConverterApp;
 			productReference = 15F341562B5EFD01001E0E89 /* CurrnecyConverterApp.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +186,9 @@
 				Base,
 			);
 			mainGroup = 15F3414D2B5EFD01001E0E89;
+			packageReferences = (
+				157329BA2B5FE97300B2F9D5 /* XCLocalSwiftPackageReference "../NetworkManager" */,
+			);
 			productRefGroup = 15F341572B5EFD01001E0E89 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,6 +433,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		157329BA2B5FE97300B2F9D5 /* XCLocalSwiftPackageReference "../NetworkManager" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../NetworkManager;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		157329BB2B5FE97300B2F9D5 /* NetworkManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkManager;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 15F3414E2B5EFD01001E0E89 /* Project object */;
 }
