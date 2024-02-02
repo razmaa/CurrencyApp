@@ -68,10 +68,11 @@ extension AllCurrenciesViewController: UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.backgroundColor = .background
 
         let currencyCode = Array(viewModel.currencyData.keys)[indexPath.row]
         cell.textLabel?.text = currencyCode
-
+        cell.textLabel?.textColor = .primary
         return cell
     }
 
