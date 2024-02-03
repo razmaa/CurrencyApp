@@ -7,32 +7,29 @@
 
 import UIKit
 
-class CurrencyCell: UITableViewCell {
+final class CurrencyCell: UITableViewCell {
     //MARK: - Properties
     
     let flagImageView: UIImageView = {
         let flagImageView = UIImageView()
         flagImageView.translatesAutoresizingMaskIntoConstraints = false
+        flagImageView.layer.cornerRadius = 50
+        flagImageView.clipsToBounds = true
         return flagImageView
     }()
     
     let currencyCodeLabel: UILabel = {
         let currencyCodeLabel = UILabel()
         currencyCodeLabel.textColor = .primary
+        currencyCodeLabel.font = UIFont.systemFont(ofSize: 20)
         currencyCodeLabel.translatesAutoresizingMaskIntoConstraints = false
         return currencyCodeLabel
-    }()
-    
-    let currencyNameLabel: UILabel = {
-        let currencyNameLabel = UILabel()
-        currencyNameLabel.textColor = .gray
-        currencyNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        return currencyNameLabel
     }()
     
     let currencyValueLabel: UILabel = {
         let currencyValueLabel = UILabel()
         currencyValueLabel.textColor = .white
+        currencyValueLabel.font = UIFont.systemFont(ofSize: 20)
         currencyValueLabel.translatesAutoresizingMaskIntoConstraints = false
         return currencyValueLabel
     }()
@@ -62,42 +59,31 @@ class CurrencyCell: UITableViewCell {
     //MARK: - Methods
     private func setupUI() {
         contentView.addSubview(flagImageView)
-        
         contentView.addSubview(currencyCodeLabel)
-        
-        contentView.addSubview(currencyNameLabel)
-        
         contentView.addSubview(currencyValueLabel)
-        
         baseCurrencyButton.addTarget(self, action: #selector(baseCurrencyButtonTapped), for: .touchUpInside)
         contentView.addSubview(baseCurrencyButton)
-        
         setUpCellConstraints()
-        
         contentView.backgroundColor = .darkGray
-        
     }
     
     private func setUpCellConstraints() {
         NSLayoutConstraint.activate([
             flagImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             flagImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            flagImageView.widthAnchor.constraint(equalToConstant: 30),
-            flagImageView.heightAnchor.constraint(equalToConstant: 30),
+            flagImageView.widthAnchor.constraint(equalToConstant: 80),
+            flagImageView.heightAnchor.constraint(equalToConstant: 80),
             
-            currencyCodeLabel.leadingAnchor.constraint(equalTo: flagImageView.trailingAnchor, constant: 10),
-            currencyCodeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            currencyCodeLabel.leadingAnchor.constraint(equalTo: flagImageView.trailingAnchor, constant: 20),
+            currencyCodeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            currencyNameLabel.leadingAnchor.constraint(equalTo: currencyCodeLabel.leadingAnchor),
-            currencyNameLabel.topAnchor.constraint(equalTo: currencyCodeLabel.bottomAnchor, constant: 10),
-            
-            currencyValueLabel.trailingAnchor.constraint(equalTo: baseCurrencyButton.leadingAnchor, constant: -10),
+            currencyValueLabel.trailingAnchor.constraint(equalTo: baseCurrencyButton.leadingAnchor, constant: -20),
             currencyValueLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            baseCurrencyButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            baseCurrencyButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             baseCurrencyButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            baseCurrencyButton.widthAnchor.constraint(equalToConstant: 30),
-            baseCurrencyButton.heightAnchor.constraint(equalToConstant: 30)
+            baseCurrencyButton.widthAnchor.constraint(equalToConstant: 60),
+            baseCurrencyButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
