@@ -8,18 +8,14 @@
 import NetworkManager
 import UIKit
 
-class CurrencyViewModel {
+final class CurrencyViewModel {
     //MARK: - Properties
     private let currencyNetworkManager = GenericNetworkManager(baseURL: "https://api.frankfurter.app")
     private let flagNetworkManager = GenericNetworkManager(baseURL: "https://flagsapi.com")
     private var timer: Timer?
     var currencyData: [String: Double] = [:]
-    var selectedCurrencies: [String] = ["USD", "GBP", "AUD"]
-    var baseCurrency: String = "EUR" {
-        didSet {
-            fetchLatestRates()
-        }
-    }
+    var selectedCurrencies: [String] = ["USD", "GBP", "AUD", "TRY", "JPY"]
+    var baseCurrency: String = "EUR"
     
     private let currencyToCountryCode: [String: String] = [
         "AUD": "AU", // Australia
@@ -64,16 +60,17 @@ class CurrencyViewModel {
             currencyData = [:]
         }
         
-        fetchLatestRates()
+        fetchLatestRates(completion: {})
         
         timer = Timer.scheduledTimer(withTimeInterval: 1800, repeats: true) { [weak self] _ in
-            self?.fetchLatestRates()
+            self?.fetchLatestRates(completion: {})
         }
     }
     
     //MARK: - Methods
-    func fetchLatestRates() {
-        let selectedCurrenciesString = selectedCurrencies.joined(separator: ",")
+    func fetchLatestRates(completion: @escaping () -> Void) {
+        let filteredCurrencies = selectedCurrencies.filter { $0 != baseCurrency }
+        let selectedCurrenciesString = filteredCurrencies.joined(separator: ",")
         currencyNetworkManager.fetchData(endpoint: "/latest?from=\(baseCurrency)&to=\(selectedCurrenciesString)") { [weak self] (result: Result<CurrencyResponse, Error>) in
             switch result {
             case .success(let data):
@@ -83,8 +80,10 @@ class CurrencyViewModel {
             case .failure(let error):
                 print("Error fetching data: \(error)")
             }
+            completion()
         }
     }
+
     
     func fetchAllCurrencies(completion: @escaping (Result<CurrencyResponse, Error>) -> Void) {
         currencyNetworkManager.fetchData(endpoint: "/latest", completion: completion)
@@ -98,6 +97,7 @@ class CurrencyViewModel {
     
     func updateBaseCurrency(to newBaseCurrency: String) {
         baseCurrency = newBaseCurrency
+        fetchLatestRates(completion: {})
     }
     
     func getCountryCode(from currencyCode: String) -> String? {
