@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+struct AppColorsSwiftUI {
+    static let primary = Color(hex: "#552CAD")
+    static let background = Color(hex: "#0A061A")
+    static let darkGray = Color(hex: "#231F31")
+    static let gray = Color(hex: "#83818A")
+    static let white = Color(hex: "#F3F1F7")
+}
+
 extension Color {
     init(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -22,9 +30,9 @@ extension Color {
         self.init(red: red, green: green, blue: blue)
     }
     
-    static let primary = AppColors.primary
-    static let background = AppColors.background
-    static let darkGray = AppColors.darkGray
-    static let gray = AppColors.gray
-    static let white = AppColors.white
+    static let primary = AppColorsSwiftUI.primary
+    static let background = AppColorsSwiftUI.background
+    static let darkGray = AppColorsSwiftUI.darkGray
+    static let gray = AppColorsSwiftUI.gray
+    static let white = AppColorsSwiftUI.white
 }
