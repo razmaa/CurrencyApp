@@ -59,7 +59,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let currenciesListViewController = CurrenciesListViewController()
         let navigationController = UINavigationController(rootViewController: currenciesListViewController)
         navigationController.tabBarItem.image = UIImage(systemName: "list.bullet.below.rectangle")
-        navigationController.tabBarItem.title = "Currencies"
+        navigationController.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
+        ]
         
         let CurrencyChartViewController = CurrencyChartViewController()
         CurrencyChartViewController.tabBarItem.image = UIImage(systemName: "chart.bar")

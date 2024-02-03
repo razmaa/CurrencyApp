@@ -8,8 +8,8 @@
 import UIKit
 import SwiftUI
 
-class CurrencyConverterViewController: UIViewController {
-
+final class CurrencyConverterViewController: UIViewController {
+//MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

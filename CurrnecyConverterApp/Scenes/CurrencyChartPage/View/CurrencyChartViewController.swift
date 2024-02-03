@@ -8,7 +8,7 @@
 import UIKit
 import DGCharts
 
-class CurrencyChartViewController: UIViewController {
+final class CurrencyChartViewController: UIViewController {
     //MARK: - Properties
     var viewModel = CurrencyChartViewModel()
     var lineChartView: LineChartView!
@@ -21,6 +21,7 @@ class CurrencyChartViewController: UIViewController {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .primary
+        textField.textColor = .white
         textField.text = "EUR"
         textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -31,9 +32,9 @@ class CurrencyChartViewController: UIViewController {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .primary
+        textField.textColor = .white
         textField.text = "USD"
         textField.textAlignment = .center
-       //textField.isUserInteractionEnabled = false
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -54,7 +55,6 @@ class CurrencyChartViewController: UIViewController {
         return button
     }()
 
-
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,6 @@ class CurrencyChartViewController: UIViewController {
         let period = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex) ?? "1W"
         fetchDataAndUpdateChart(for: period)
     }
-
     
     //MARK: - Methods
     private func setupUI() {
@@ -126,7 +125,6 @@ class CurrencyChartViewController: UIViewController {
         segmentedControl.backgroundColor = .darkGray
         segmentedControl.selectedSegmentTintColor = .primary
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-        segmentedControl.backgroundColor = UIColor.lightGray
         view.addSubview(segmentedControl)
     }
     
@@ -212,7 +210,6 @@ class CurrencyChartViewController: UIViewController {
         targetCurrencyField.text = temp
         fetchDataAndUpdateChart(for: segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex) ?? "1W")
     }
-
 }
 
 //MARK: - Extensions(PickerView)
