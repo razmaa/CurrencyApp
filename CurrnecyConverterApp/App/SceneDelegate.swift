@@ -65,11 +65,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         CurrencyChartViewController.tabBarItem.image = UIImage(systemName: "chart.bar")
         CurrencyChartViewController.tabBarItem.title = "Chart"
         
+        let CurrencyConverterViewController = CurrencyConverterViewController()
+        CurrencyConverterViewController.tabBarItem.image = UIImage(systemName: "larisign.arrow.circlepath")
+        CurrencyConverterViewController.tabBarItem.title = "Converter"
+        
         UITabBar.appearance().tintColor = .white
         UITabBar.appearance().unselectedItemTintColor = .gray
         UITabBar.appearance().barTintColor = .background
         
-        tabBarController.setViewControllers([navigationController, CurrencyChartViewController], animated: true)
+        tabBarController.setViewControllers([navigationController, CurrencyChartViewController, CurrencyConverterViewController], animated: true)
         
         return tabBarController
     }
