@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrenciesListViewController: UIViewController {
+final class CurrenciesListViewController: UIViewController {
     //MARK: - Properties
     
     private var viewModel = CurrencyViewModel()
@@ -29,17 +29,20 @@ class CurrenciesListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewModel.fetchLatestRates()
-        tableView.reloadData()
+        viewModel.fetchLatestRates {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     //MARK: - Methods
     private func setupUI() {
-        self.title = "Currencies"
         view.backgroundColor = .background
         
         setupTableView()
         
+        navigationItem.title = "Currencies"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -48,6 +51,7 @@ class CurrenciesListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .background
+        tableView.tintColor = .primary
         tableView.register(CurrencyCell.self, forCellReuseIdentifier: "CurrencyCell")
         view.addSubview(tableView)
         
@@ -59,16 +63,9 @@ class CurrenciesListViewController: UIViewController {
         ])
     }
     
-    
     @objc func addButtonTapped() {
         let allCurrenciesViewController = AllCurrenciesViewController(viewModel: viewModel)
         navigationController?.pushViewController(allCurrenciesViewController, animated: true)
-    }
-    
-    @objc func baseCurrencyChanged(_ sender: UISegmentedControl) {
-        viewModel.baseCurrency = viewModel.selectedCurrencies[sender.selectedSegmentIndex]
-        viewModel.fetchLatestRates()
-        tableView.reloadData()
     }
     
 }
@@ -82,6 +79,10 @@ extension CurrenciesListViewController: UITableViewDataSource, UITableViewDelega
         return viewModel.selectedCurrencies.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCell", for: indexPath) as! CurrencyCell
         
@@ -89,11 +90,15 @@ extension CurrenciesListViewController: UITableViewDataSource, UITableViewDelega
             let currencyCode = viewModel.selectedCurrencies[indexPath.row]
             let currencyRate = viewModel.currencyData[currencyCode]
             cell.currencyCodeLabel.text = currencyCode
-            cell.currencyValueLabel.text = String(format: "%.3f", currencyRate ?? 1)
+            cell.currencyValueLabel.text = String(format: "%.3f", currencyRate ?? 1 )
             cell.baseCurrencyButton.isSelected = (currencyCode == viewModel.baseCurrency)
             cell.onBaseCurrencyButtonTapped = { [weak self] in
                 self?.viewModel.updateBaseCurrency(to: currencyCode)
-                tableView.reloadData()
+                self?.viewModel.fetchLatestRates {
+                    DispatchQueue.main.async {
+                        tableView.reloadData()
+                    }
+                }
             }
             
             viewModel.fetchFlagForCountryCode(currencyCode) { result in
@@ -107,7 +112,6 @@ extension CurrenciesListViewController: UITableViewDataSource, UITableViewDelega
                 }
             }
         }
-        
         return cell
     }
     
@@ -120,6 +124,10 @@ extension CurrenciesListViewController: UITableViewDataSource, UITableViewDelega
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .background
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
