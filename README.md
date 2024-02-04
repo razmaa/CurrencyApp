@@ -16,6 +16,10 @@ Currency Converter App is a Swift-based iOS application that allows users to con
 ## Screenshots
 
 
+https://github.com/razmaa/CurrencyApp/assets/145837511/613f63d8-6d7c-4e8f-b531-5139db64fb73
+
+
+
 
 ## How to use
 1. Clone this repository to your local machine.
