@@ -9,10 +9,16 @@ import WidgetKit
 import AppIntents
 
 struct ConfigurationAppIntent: WidgetConfigurationIntent {
-    static var title: LocalizedStringResource = "Configuration"
-    static var description = IntentDescription("This is an example widget.")
+    static var title: LocalizedStringResource = "Currency Rates Widget Configuration"
+    static var description = IntentDescription("Configure your Currency Rates widget.")
 
     // An example configurable parameter.
-    @Parameter(title: "Favorite Emoji", default: "😃")
-    var favoriteEmoji: String
+    @Parameter(title: "Base Currency", default: "EUR")
+    dynamic var baseCurrency: String?
+    
+    var currencyOptions: [String] {
+        return UserDefaults.standard.stringArray(forKey: "CurrencyData") ?? []
+    }
 }
+
+
