@@ -8,6 +8,15 @@
         "revision" : "0a229f8c914b0ec93798cee058cf75b339297513",
         "version" : "5.0.0"
       }
+    },
+    {
+      "identity" : "networkmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/razmaa/NetworkManager",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b473f9c518a8c63ce75a7902aa301f465c4ce7fe"
+      }
     }
   ],
   "version" : 2
