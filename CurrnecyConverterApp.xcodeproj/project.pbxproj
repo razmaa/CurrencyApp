@@ -21,6 +21,10 @@
 		1560D2B32B7044ED00D8051D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1560D2B22B7044ED00D8051D /* Assets.xcassets */; };
 		1560D2B72B7044ED00D8051D /* CurrencyRatesWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1560D2A52B7044E700D8051D /* CurrencyRatesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		157329BC2B5FE97300B2F9D5 /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 157329BB2B5FE97300B2F9D5 /* NetworkManager */; };
+		15A1C6D62B72F7D300E53F9A /* CryptoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1C6D52B72F7D300E53F9A /* CryptoListViewController.swift */; };
+		15A1C6D82B72F7F500E53F9A /* CryptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1C6D72B72F7F500E53F9A /* CryptoTableViewCell.swift */; };
+		15A1C6DA2B72F82900E53F9A /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1C6D92B72F82900E53F9A /* CryptoListViewModel.swift */; };
+		15A1C6DC2B72F88A00E53F9A /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1C6DB2B72F88A00E53F9A /* CryptoModel.swift */; };
 		15CBCAEE2B6928CF00F2819B /* AllCurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CBCAED2B6928CF00F2819B /* AllCurrenciesViewController.swift */; };
 		15EBDF062B6DCAAA0089FBB1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EBDF052B6DCAAA0089FBB1 /* ColorExtension.swift */; };
 		15EBDF0B2B6DCC410089FBB1 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EBDF0A2B6DCC410089FBB1 /* CurrencyConverterViewModel.swift */; };
@@ -75,6 +79,10 @@
 		1560D2B42B7044ED00D8051D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1560D2BC2B70913C00D8051D /* CurrnecyConverterApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CurrnecyConverterApp.entitlements; sourceTree = "<group>"; };
 		1560D2BD2B70965700D8051D /* CurrencyRatesWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CurrencyRatesWidgetExtension.entitlements; sourceTree = "<group>"; };
+		15A1C6D52B72F7D300E53F9A /* CryptoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewController.swift; sourceTree = "<group>"; };
+		15A1C6D72B72F7F500E53F9A /* CryptoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewCell.swift; sourceTree = "<group>"; };
+		15A1C6D92B72F82900E53F9A /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
+		15A1C6DB2B72F88A00E53F9A /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
 		15CBCAED2B6928CF00F2819B /* AllCurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCurrenciesViewController.swift; sourceTree = "<group>"; };
 		15EBDF052B6DCAAA0089FBB1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		15EBDF0A2B6DCC410089FBB1 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
@@ -159,6 +167,40 @@
 				1560D2B42B7044ED00D8051D /* Info.plist */,
 			);
 			path = CurrencyRatesWidget;
+			sourceTree = "<group>";
+		};
+		15A1C6D12B72F74000E53F9A /* CryptoListPage */ = {
+			isa = PBXGroup;
+			children = (
+				15A1C6D32B72F76700E53F9A /* View */,
+				15A1C6D22B72F76100E53F9A /* ViewModel */,
+			);
+			path = CryptoListPage;
+			sourceTree = "<group>";
+		};
+		15A1C6D22B72F76100E53F9A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				15A1C6D92B72F82900E53F9A /* CryptoListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		15A1C6D32B72F76700E53F9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15A1C6D52B72F7D300E53F9A /* CryptoListViewController.swift */,
+				15A1C6D42B72F77B00E53F9A /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		15A1C6D42B72F77B00E53F9A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				15A1C6D72B72F7F500E53F9A /* CryptoTableViewCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		15CBCAEC2B6928B300F2819B /* Components */ = {
@@ -262,6 +304,7 @@
 				15F3416E2B5EFD13001E0E89 /* CurrenciesListPage */,
 				152F26C62B6BD6D8000BFBB8 /* CurrencyChartPage */,
 				15EBDF072B6DCB190089FBB1 /* CurrencyConverterPage */,
+				15A1C6D12B72F74000E53F9A /* CryptoListPage */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -297,6 +340,7 @@
 			children = (
 				15F341782B5EFDFD001E0E89 /* CurrencyModel.swift */,
 				152F26CD2B6BD780000BFBB8 /* ExchangeRateModel.swift */,
+				15A1C6DB2B72F88A00E53F9A /* CryptoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -433,15 +477,19 @@
 				152FA07D2B695B5300F97440 /* CurrencyCell.swift in Sources */,
 				152F26CE2B6BD780000BFBB8 /* ExchangeRateModel.swift in Sources */,
 				15F341792B5EFDFD001E0E89 /* CurrencyModel.swift in Sources */,
+				15A1C6D82B72F7F500E53F9A /* CryptoTableViewCell.swift in Sources */,
 				15EBDF062B6DCAAA0089FBB1 /* ColorExtension.swift in Sources */,
 				15EBDF102B6DCD890089FBB1 /* CurrencyConverterView.swift in Sources */,
+				15A1C6D62B72F7D300E53F9A /* CryptoListViewController.swift in Sources */,
 				15F341742B5EFDA6001E0E89 /* CurrenciesListViewController.swift in Sources */,
 				15F3415A2B5EFD01001E0E89 /* AppDelegate.swift in Sources */,
 				15EBDF0D2B6DCD630089FBB1 /* CurrencyConverterViewController.swift in Sources */,
 				15F3415C2B5EFD01001E0E89 /* SceneDelegate.swift in Sources */,
 				15CBCAEE2B6928CF00F2819B /* AllCurrenciesViewController.swift in Sources */,
 				152F26CC2B6BD72F000BFBB8 /* CurrencyChartViewModel.swift in Sources */,
+				15A1C6DA2B72F82900E53F9A /* CryptoListViewModel.swift in Sources */,
 				152F26CA2B6BD711000BFBB8 /* CurrencyChartViewController.swift in Sources */,
+				15A1C6DC2B72F88A00E53F9A /* CryptoModel.swift in Sources */,
 				15F341762B5EFDE0001E0E89 /* CurrenciesListViewModel.swift in Sources */,
 				15EBDF0B2B6DCC410089FBB1 /* CurrencyConverterViewModel.swift in Sources */,
 				15F3417D2B5F04AC001E0E89 /* UIColorExtension.swift in Sources */,
