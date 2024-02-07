@@ -9,6 +9,7 @@ Currency Converter App is a Swift-based iOS application that allows users to con
 ## Features
 - Convert currency from one unit to another using real-time exchange rates.
 - Choose base currencies for quick access to rates.
+- Real-time cryptocurrency price tracking.
 - Compare exchange rates between two dates.
 - Intuitive user interface with seamless navigation.
 - API integration to fetch up-to-date exchange rates.
@@ -16,10 +17,11 @@ Currency Converter App is a Swift-based iOS application that allows users to con
 ## Screenshots
 
 
-https://github.com/razmaa/CurrencyApp/assets/145837511/613f63d8-6d7c-4e8f-b531-5139db64fb73
+![Simulator_Screen_Recording](https://github.com/razmaa/CurrencyApp/assets/145837511/52204de6-9446-46f1-a3c1-d3f0ab2ba605)
 
+![Simulator Screenshot - mk - 2024-02-06 at 07 51 16](https://github.com/razmaa/CurrencyApp/assets/145837511/4fe5c082-16b9-4cfc-92c1-968b7e11d58b)
 
-
+![Simulator Screenshot - mk - 2024-02-06 at 07 51 27](https://github.com/razmaa/CurrencyApp/assets/145837511/36dce536-c1b8-4ae5-a777-326b5986d57d)
 
 ## How to use
 1. Clone this repository to your local machine.
@@ -29,9 +31,11 @@ https://github.com/razmaa/CurrencyApp/assets/145837511/613f63d8-6d7c-4e8f-b531-5
 ## Dependencies
 
 - DGCharts: powerful library for creating beautiful charts in iOS.
+- WidgetKit: Framework for building iOS widgets.
 - UIKit: Framework for building iOS user interfaces.
-- SwiftUI: Framework for building iOS user interfaces
-- MVVM: Mode View View Model architectural pattern
+- SwiftUI: Framework for building iOS user interfaces.
+- MVVM: Mode View View Model architectural pattern.
+- UserDefaults: convenient storage for persistently storing small amounts of data in iOS applications.
 
 ## Getting Started
 
