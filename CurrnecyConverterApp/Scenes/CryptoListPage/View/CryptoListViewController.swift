@@ -57,9 +57,7 @@ class CryptoListViewController: UIViewController {
         if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textField.defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         }
-
     }
-
 }
 
 //MARK: - Extension(TableView)
@@ -80,8 +78,6 @@ extension CryptoListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
-    
-
 }
 
 //MARK: - Extension(SearchController)
@@ -97,5 +93,4 @@ extension CryptoListViewController: UISearchResultsUpdating {
         }
         tableView.reloadData()
     }
-
 }

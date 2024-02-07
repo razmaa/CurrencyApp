@@ -45,7 +45,6 @@ struct CurrencyConverterView: View {
             .padding()
     }
     
-    
     private var amountField: some View {
         TextField("Amount", text: $amount)
             .keyboardType(.numberPad)

@@ -12,7 +12,6 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Currency Rates Widget Configuration"
     static var description = IntentDescription("Configure your Currency Rates widget.")
 
-    // An example configurable parameter.
     @Parameter(title: "Base Currency", default: "EUR")
     dynamic var baseCurrency: String?
     

@@ -111,8 +111,6 @@ struct CurrencyRatesWidgetEntryView : View {
     }
 }
 
-
-
 struct CurrencyRateRow: View {
     let key: String
     let value: Double

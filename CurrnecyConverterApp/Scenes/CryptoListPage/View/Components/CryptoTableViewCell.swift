@@ -111,7 +111,6 @@ class CryptoTableViewCell: UITableViewCell {
             priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            
             priceBackgroundView.leadingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -8),
             priceBackgroundView.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor, constant: 8),
             priceBackgroundView.topAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -4),
