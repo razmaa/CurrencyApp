@@ -10,9 +10,11 @@ import NetworkManager
 import DGCharts
 
 final class CurrencyChartViewModel {
+    //MARK: - Properties
     var networkManager: GenericNetworkManager?
     var targetCurrencies: [String] = []
     
+    //MARK: - init
     init() {
         networkManager = GenericNetworkManager(baseURL: "https://www.frankfurter.app/")
         
@@ -26,6 +28,7 @@ final class CurrencyChartViewModel {
         }
     }
     
+    //MARK: - Methods
     func fetchAllCurrencies(completion: @escaping (Result<[String: String], Error>) -> Void) {
         let endpoint = "/currencies"
         
