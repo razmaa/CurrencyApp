@@ -9,7 +9,6 @@ import UIKit
 
 final class CurrencyCell: UITableViewCell {
     //MARK: - Properties
-    
     let flagImageView: UIImageView = {
         let flagImageView = UIImageView()
         flagImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,16 +54,23 @@ final class CurrencyCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //MARK: - Configure
+    func configure(with currencyCode: String, currencyRate: Double, baseCurrency: String, onBaseCurrencyButtonTapped: @escaping () -> Void) {
+         currencyCodeLabel.text = currencyCode
+         currencyValueLabel.text = String(format: "%.3f", currencyRate)
+         baseCurrencyButton.isSelected = (currencyCode == baseCurrency)
+         self.onBaseCurrencyButtonTapped = onBaseCurrencyButtonTapped
+     }
     
     //MARK: - Methods
     private func setupUI() {
+        self.backgroundColor = .darkGray
         contentView.addSubview(flagImageView)
         contentView.addSubview(currencyCodeLabel)
         contentView.addSubview(currencyValueLabel)
         baseCurrencyButton.addTarget(self, action: #selector(baseCurrencyButtonTapped), for: .touchUpInside)
         contentView.addSubview(baseCurrencyButton)
         setUpCellConstraints()
-        contentView.backgroundColor = .darkGray
     }
     
     private func setUpCellConstraints() {

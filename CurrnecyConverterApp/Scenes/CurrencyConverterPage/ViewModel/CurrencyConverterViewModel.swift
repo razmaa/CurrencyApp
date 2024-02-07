@@ -36,7 +36,6 @@ final class CurrencyConverterViewModel: ObservableObject {
         }
     }
     
-    
     func convert(amount: String, from: String, to: String) {
         let expression = NSExpression(format: amount)
         guard let amountValue = expression.expressionValue(with: nil, context: nil) as? Double else {

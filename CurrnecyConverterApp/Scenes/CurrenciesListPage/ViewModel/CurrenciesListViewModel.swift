@@ -49,7 +49,6 @@ final class CurrencyViewModel {
         "USD": "US", // United States
         "ZAR": "ZA"  // South Africa
     ]
-
     
     //MARK: - init
     init() {
@@ -103,7 +102,6 @@ final class CurrencyViewModel {
     func getCountryCode(from currencyCode: String) -> String? {
         return currencyToCountryCode[currencyCode]
     }
-
     
     func fetchFlagForCountryCode(_ currencyCode: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
         guard let countryCode = getCountryCode(from: currencyCode) else {
@@ -114,9 +112,4 @@ final class CurrencyViewModel {
         let flagEndpoint = "/\(countryCode)/flat/64.png"
         flagNetworkManager.fetchImage(endpoint: flagEndpoint, completion: completion)
     }
-
-    func fetchHistoricalRates(date: String, completion: @escaping (Result<CurrencyResponse, Error>) -> Void) {
-        currencyNetworkManager.fetchData(endpoint: "/\(date)", completion: completion)
-    }
-
 }

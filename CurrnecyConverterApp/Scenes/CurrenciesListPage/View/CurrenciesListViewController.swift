@@ -9,7 +9,6 @@ import UIKit
 
 final class CurrenciesListViewController: UIViewController {
     //MARK: - Properties
-    
     private var viewModel = CurrencyViewModel()
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -17,13 +16,12 @@ final class CurrenciesListViewController: UIViewController {
         return tableView
     }()
     
-    
     //MARK: - LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,11 +65,9 @@ final class CurrenciesListViewController: UIViewController {
         let allCurrenciesViewController = AllCurrenciesViewController(viewModel: viewModel)
         navigationController?.pushViewController(allCurrenciesViewController, animated: true)
     }
-    
 }
 
 //MARK: - Extensions
-
 extension CurrenciesListViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDataSource
@@ -88,11 +84,9 @@ extension CurrenciesListViewController: UITableViewDataSource, UITableViewDelega
         
         if indexPath.row < viewModel.selectedCurrencies.count {
             let currencyCode = viewModel.selectedCurrencies[indexPath.row]
-            let currencyRate = viewModel.currencyData[currencyCode]
-            cell.currencyCodeLabel.text = currencyCode
-            cell.currencyValueLabel.text = String(format: "%.3f", currencyRate ?? 1 )
-            cell.baseCurrencyButton.isSelected = (currencyCode == viewModel.baseCurrency)
-            cell.onBaseCurrencyButtonTapped = { [weak self] in
+            let currencyRate = viewModel.currencyData[currencyCode] ?? 1
+            
+            cell.configure(with: currencyCode, currencyRate: currencyRate, baseCurrency: viewModel.baseCurrency) { [weak self] in
                 self?.viewModel.updateBaseCurrency(to: currencyCode)
                 self?.viewModel.fetchLatestRates {
                     DispatchQueue.main.async {
