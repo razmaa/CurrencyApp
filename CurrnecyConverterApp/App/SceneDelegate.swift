@@ -15,10 +15,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
-        let navigation = UINavigationController(rootViewController: tabBarController())
-        self.window?.rootViewController = navigation
-        self.window?.tintColor = .primary
+        let launchScreenViewController = LaunchScreenViewController()
+        self.window?.rootViewController = launchScreenViewController
         self.window?.makeKeyAndVisible()
+        
+        let viewModel = CurrencyViewModel()
+        viewModel.fetchLatestRates {
+            DispatchQueue.main.async {
+                let tabBarController = self.tabBarController()
+                let navigation = UINavigationController(rootViewController: tabBarController)
+                self.window?.rootViewController = navigation
+            }
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
