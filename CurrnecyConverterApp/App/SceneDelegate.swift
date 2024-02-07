@@ -11,17 +11,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
-        
         let navigation = UINavigationController(rootViewController: tabBarController())
-        navigation.navigationBar.barTintColor = .background
         self.window?.rootViewController = navigation
+        self.window?.tintColor = .primary
         self.window?.makeKeyAndVisible()
-        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -60,19 +57,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let currenciesNavigationController = UINavigationController(rootViewController: currenciesListViewController)
         currenciesNavigationController.tabBarItem.image = UIImage(systemName: "list.bullet.below.rectangle")
         currenciesNavigationController.tabBarItem.title = "Currencies"
-        currenciesNavigationController.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
-        ]
         
         let cryptoListViewController = CryptoListViewController()
         let cryptoNavigationController = UINavigationController(rootViewController: cryptoListViewController)
         cryptoNavigationController.tabBarItem.image = UIImage(systemName: "bitcoinsign")
         cryptoNavigationController.tabBarItem.title = "Crypto"
-        cryptoNavigationController.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
-        ]
         
         let CurrencyChartViewController = CurrencyChartViewController()
         CurrencyChartViewController.tabBarItem.image = UIImage(systemName: "chart.bar")
@@ -86,10 +75,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().unselectedItemTintColor = .gray
         UITabBar.appearance().barTintColor = .background
         
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)
+        ]
+
+        navigationBarAppearance.backgroundColor = UIColor.background
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        
         tabBarController.setViewControllers([currenciesNavigationController, cryptoNavigationController, CurrencyChartViewController, CurrencyConverterViewController], animated: true)
         
         return tabBarController
     }
-    
 }
 
