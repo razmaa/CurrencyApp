@@ -13,6 +13,7 @@
 		152F26CC2B6BD72F000BFBB8 /* CurrencyChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F26CB2B6BD72F000BFBB8 /* CurrencyChartViewModel.swift */; };
 		152F26CE2B6BD780000BFBB8 /* ExchangeRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F26CD2B6BD780000BFBB8 /* ExchangeRateModel.swift */; };
 		152FA07D2B695B5300F97440 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152FA07C2B695B5300F97440 /* CurrencyCell.swift */; };
+		154B53D22B73A6280031223B /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B53D12B73A6280031223B /* LaunchScreenViewController.swift */; };
 		1560D2A82B7044E800D8051D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1560D2A72B7044E800D8051D /* WidgetKit.framework */; };
 		1560D2AA2B7044E800D8051D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1560D2A92B7044E800D8051D /* SwiftUI.framework */; };
 		1560D2AD2B7044E800D8051D /* CurrencyRatesWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560D2AC2B7044E800D8051D /* CurrencyRatesWidgetBundle.swift */; };
@@ -69,6 +70,7 @@
 		152F26CB2B6BD72F000BFBB8 /* CurrencyChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyChartViewModel.swift; sourceTree = "<group>"; };
 		152F26CD2B6BD780000BFBB8 /* ExchangeRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateModel.swift; sourceTree = "<group>"; };
 		152FA07C2B695B5300F97440 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
+		154B53D12B73A6280031223B /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		1560D2A52B7044E700D8051D /* CurrencyRatesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CurrencyRatesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1560D2A72B7044E800D8051D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1560D2A92B7044E800D8051D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -146,6 +148,14 @@
 				152F26C92B6BD711000BFBB8 /* CurrencyChartViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		154B53D02B73A5E50031223B /* LaunchPage */ = {
+			isa = PBXGroup;
+			children = (
+				154B53D12B73A6280031223B /* LaunchScreenViewController.swift */,
+			);
+			path = LaunchPage;
 			sourceTree = "<group>";
 		};
 		1560D2A62B7044E800D8051D /* Frameworks */ = {
@@ -301,6 +311,7 @@
 		15F3416F2B5EFD1F001E0E89 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				154B53D02B73A5E50031223B /* LaunchPage */,
 				15F3416E2B5EFD13001E0E89 /* CurrenciesListPage */,
 				152F26C62B6BD6D8000BFBB8 /* CurrencyChartPage */,
 				15EBDF072B6DCB190089FBB1 /* CurrencyConverterPage */,
@@ -492,6 +503,7 @@
 				15A1C6DC2B72F88A00E53F9A /* CryptoModel.swift in Sources */,
 				15F341762B5EFDE0001E0E89 /* CurrenciesListViewModel.swift in Sources */,
 				15EBDF0B2B6DCC410089FBB1 /* CurrencyConverterViewModel.swift in Sources */,
+				154B53D22B73A6280031223B /* LaunchScreenViewController.swift in Sources */,
 				15F3417D2B5F04AC001E0E89 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
