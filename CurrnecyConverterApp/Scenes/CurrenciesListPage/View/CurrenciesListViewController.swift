@@ -27,11 +27,7 @@ final class CurrenciesListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewModel.fetchLatestRates {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        tableView.reloadData()
     }
     
     //MARK: - Methods
