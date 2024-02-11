@@ -8,7 +8,7 @@
 import NetworkManager
 import UIKit
 
-class CryptoListViewModel {
+final class CryptoListViewModel {
     //MARK: - Properties
     var cryptos: [Crypto] = []
     private var images: [String: UIImage] = [:]

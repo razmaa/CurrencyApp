@@ -8,7 +8,7 @@
 import UIKit
 import NetworkManager
 
-class CryptoListViewController: UIViewController {
+final class CryptoListViewController: UIViewController {
     //MARK: - Properties
     private var tableView: UITableView!
     private var searchController: UISearchController!
@@ -40,7 +40,7 @@ class CryptoListViewController: UIViewController {
         tableView = UITableView(frame: view.bounds)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.allowsSelection = false
+       // tableView.allowsSelection = false
         tableView.register(CryptoTableViewCell.self, forCellReuseIdentifier: "CryptoCell")
         tableView.backgroundColor = UIColor.background
         view.addSubview(tableView)
@@ -78,6 +78,16 @@ extension CryptoListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let crypto = filteredCryptos[indexPath.row]
+        let detailsVC = CryptoDetailsViewController()
+        detailsVC.crypto = crypto
+        detailsVC.cryptoImage = viewModel.image(for: crypto)
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
+
 }
 
 //MARK: - Extension(SearchController)
