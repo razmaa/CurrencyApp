@@ -16,7 +16,8 @@ Currency Converter App is a Swift-based iOS application that allows users to con
 
 ## Screenshots
 
-![Simulator_Screen_Recording_-_mk_-_2024-02-07_at_05_21_43_AdobeExpress](https://github.com/razmaa/CurrencyApp/assets/145837511/b8d28c12-f75d-4a6c-b5d2-11ee559a7780)
+![Simulator_Screen_Recording_-_mk_-_2024-02-07_at_05_21_43_AdobeExpress](https://github.com/razmaa/CurrencyApp/assets/145837511/cf8fef6e-0b3e-492f-8563-734b643c9428)
+
 
 ![Simulator_Screen_Recording_-_mk_-_2024-02-07_at_05_44_20_AdobeExpress](https://github.com/razmaa/CurrencyApp/assets/145837511/29565e47-35ed-42b3-a685-e9c998cb0709)
 
@@ -33,7 +34,6 @@ Currency Converter App is a Swift-based iOS application that allows users to con
 - UIKit: Framework for building iOS user interfaces.
 - SwiftUI: Framework for building iOS user interfaces.
 - MVVM: Mode View View Model architectural pattern.
-- UserDefaults: convenient storage for persistently storing small amounts of data in iOS applications.
 
 ## Getting Started
 
