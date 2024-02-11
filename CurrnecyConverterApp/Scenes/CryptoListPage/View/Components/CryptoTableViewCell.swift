@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CryptoTableViewCell: UITableViewCell {
+final class CryptoTableViewCell: UITableViewCell {
     //MARK: - Properties
     let logoImageView: UIImageView = {
         let imageView = UIImageView()

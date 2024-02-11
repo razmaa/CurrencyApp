@@ -8,7 +8,7 @@
 import UIKit
 import NetworkManager
 
-class CryptoListViewController: UIViewController {
+final class CryptoListViewController: UIViewController {
     //MARK: - Properties
     private var tableView: UITableView!
     private var searchController: UISearchController!
