@@ -7,16 +7,16 @@
 
 import UIKit
 
-class LaunchScreenViewController: UIViewController {
-    
+final class LaunchScreenViewController: UIViewController {
+    //MARK: - properties
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "AppIcon"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-
     
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +29,7 @@ class LaunchScreenViewController: UIViewController {
             logoImageView.widthAnchor.constraint(equalToConstant: 100),  // Adjust as needed
             logoImageView.heightAnchor.constraint(equalToConstant: 100)
         ])
-        
     }
-
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -40,5 +38,4 @@ class LaunchScreenViewController: UIViewController {
             self?.logoImageView.transform = CGAffineTransform(rotationAngle: .pi * 2)
         })
     }
-
 }

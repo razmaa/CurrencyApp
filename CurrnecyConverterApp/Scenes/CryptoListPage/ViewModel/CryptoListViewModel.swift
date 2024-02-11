@@ -14,7 +14,7 @@ class CryptoListViewModel {
     private var images: [String: UIImage] = [:]
     private var cryptoNetworkManager = GenericNetworkManager(baseURL: "https://api.coincap.io")
     private var imageNetworkManager = GenericNetworkManager(baseURL: "https://coinicons-api.vercel.app/api/icon/")
-
+    
     //MARK: - Methods
     func fetchCryptos(completion: @escaping () -> Void) {
         cryptoNetworkManager.fetchData(endpoint: "/v2/assets") { (result: Result<CryptoList, Error>) in
@@ -31,7 +31,7 @@ class CryptoListViewModel {
             }
         }
     }
-
+    
     private func fetchImages(completion: @escaping () -> Void) {
         let group = DispatchGroup()
         for crypto in cryptos {
@@ -50,11 +50,11 @@ class CryptoListViewModel {
             completion()
         }
     }
-
+    
     func numberOfRows() -> Int {
         return cryptos.count
     }
-
+    
     func crypto(at index: Int) -> Crypto {
         return cryptos[index]
     }
