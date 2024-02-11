@@ -44,6 +44,7 @@ final class CurrenciesListViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         tableView.backgroundColor = .background
         tableView.tintColor = .primary
         tableView.register(CurrencyCell.self, forCellReuseIdentifier: "CurrencyCell")
@@ -117,7 +118,7 @@ extension CurrenciesListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.backgroundColor = .background
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .darkGray
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {

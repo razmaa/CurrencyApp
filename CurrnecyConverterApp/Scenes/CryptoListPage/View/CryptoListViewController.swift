@@ -14,18 +14,18 @@ class CryptoListViewController: UIViewController {
     private var searchController: UISearchController!
     private var viewModel = CryptoListViewModel()
     private var filteredCryptos: [Crypto] = []
-
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
     }
     
     //MARK: - Methods
     private func setupUI () {
         setupTableView()
-
+        
         viewModel.fetchCryptos { [weak self] in
             DispatchQueue.main.async {
                 self?.filteredCryptos = self?.viewModel.cryptos ?? []
@@ -66,7 +66,7 @@ extension CryptoListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredCryptos.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CryptoCell", for: indexPath) as! CryptoTableViewCell
         let crypto = filteredCryptos[indexPath.row]

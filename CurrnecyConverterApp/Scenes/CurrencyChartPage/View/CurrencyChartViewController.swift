@@ -54,11 +54,11 @@ final class CurrencyChartViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
         fetchDataAndUpdateChart(for: "1W")
     }
@@ -87,7 +87,7 @@ final class CurrencyChartViewController: UIViewController {
         view.addSubview(baseCurrencyField)
         baseCurrencyField.inputView = baseCurrencyPicker
         targetCurrencyField.inputView = targetCurrencyPicker
-
+        
         baseCurrencyPicker.delegate = self
         baseCurrencyPicker.dataSource = self
         targetCurrencyPicker.delegate = self
@@ -101,7 +101,7 @@ final class CurrencyChartViewController: UIViewController {
         lineChartView = LineChartView()
         lineChartView.legend.enabled = false
         lineChartView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         lineChartView.xAxis.drawGridLinesEnabled = false
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.rightAxis.drawGridLinesEnabled = false
@@ -132,16 +132,16 @@ final class CurrencyChartViewController: UIViewController {
         NSLayoutConstraint.activate([
             currencyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             currencyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
+            
             lineChartView.topAnchor.constraint(equalTo: currencyLabel.bottomAnchor, constant: 35),
             lineChartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             lineChartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             lineChartView.heightAnchor.constraint(equalToConstant: 300),
-
+            
             segmentedControl.topAnchor.constraint(equalTo: lineChartView.bottomAnchor, constant: 35),
             segmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             segmentedControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-
+            
             baseCurrencyField.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 60),
             baseCurrencyField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             baseCurrencyField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
@@ -157,7 +157,6 @@ final class CurrencyChartViewController: UIViewController {
             targetCurrencyField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
             targetCurrencyField.heightAnchor.constraint(equalToConstant: 50),
         ])
-
     }
     
     private func setupToolBar() {
@@ -180,6 +179,7 @@ final class CurrencyChartViewController: UIViewController {
         viewModel.fetchDataAndUpdateChart(for: period, baseCurrency: baseCurrency, targetCurrency: targetCurrency) { [weak self] chartData in
             DispatchQueue.main.async {
                 self?.lineChartView.data = chartData
+                self?.lineChartView.animate(xAxisDuration: 1.5, yAxisDuration: 0.0)
             }
         }
     }
@@ -222,7 +222,7 @@ extension CurrencyChartViewController: UIPickerViewDelegate, UIPickerViewDataSou
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return viewModel.targetCurrencies.count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.targetCurrencies[row]
     }

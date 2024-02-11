@@ -55,7 +55,6 @@ final class AllCurrenciesViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
-    
 }
 
 //MARK: - Extension
@@ -71,7 +70,12 @@ extension AllCurrenciesViewController: UITableViewDelegate, UITableViewDataSourc
         cell.backgroundColor = .background
         
         let currencyCode = Array(viewModel.currencyData.keys)[indexPath.row]
-        cell.textLabel?.text = currencyCode
+        if let countryCode = viewModel.getCountryCode(from: currencyCode) {
+            let flagEmoji = viewModel.flagEmoji(for: countryCode)
+            cell.textLabel?.text = "\(flagEmoji) \(currencyCode)"
+        } else {
+            cell.textLabel?.text = currencyCode
+        }
         cell.textLabel?.textColor = .primary
         return cell
     }

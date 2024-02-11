@@ -55,7 +55,7 @@ struct CurrencyConverterView: View {
     }
     
     private var datePicker: some View {
-        DatePicker("Select a Date", selection: $viewModel.selectedDate, displayedComponents: .date)
+        DatePicker("Select a Date", selection: $viewModel.selectedDate, in: ...Date(),displayedComponents: .date)
             .padding()
             .background(Color.darkGray)
             .foregroundColor(.white)

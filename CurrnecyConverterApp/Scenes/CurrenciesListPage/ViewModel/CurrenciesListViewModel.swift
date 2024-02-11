@@ -83,7 +83,6 @@ final class CurrencyViewModel {
         }
     }
 
-    
     func fetchAllCurrencies(completion: @escaping (Result<CurrencyResponse, Error>) -> Void) {
         currencyNetworkManager.fetchData(endpoint: "/latest", completion: completion)
     }
@@ -111,5 +110,14 @@ final class CurrencyViewModel {
         
         let flagEndpoint = "/\(countryCode)/flat/64.png"
         flagNetworkManager.fetchImage(endpoint: flagEndpoint, completion: completion)
+    }
+    
+    func flagEmoji(for countryCode: String) -> String {
+        let base: UInt32 = 127397
+        var s = ""
+        for v in countryCode.unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return s
     }
 }

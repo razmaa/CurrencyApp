@@ -56,11 +56,11 @@ final class CurrencyCell: UITableViewCell {
     }
     //MARK: - Configure
     func configure(with currencyCode: String, currencyRate: Double, baseCurrency: String, onBaseCurrencyButtonTapped: @escaping () -> Void) {
-         currencyCodeLabel.text = currencyCode
-         currencyValueLabel.text = String(format: "%.3f", currencyRate)
-         baseCurrencyButton.isSelected = (currencyCode == baseCurrency)
-         self.onBaseCurrencyButtonTapped = onBaseCurrencyButtonTapped
-     }
+        currencyCodeLabel.text = currencyCode
+        currencyValueLabel.text = String(format: "%.3f", currencyRate)
+        baseCurrencyButton.isSelected = (currencyCode == baseCurrency)
+        self.onBaseCurrencyButtonTapped = onBaseCurrencyButtonTapped
+    }
     
     //MARK: - Methods
     private func setupUI() {

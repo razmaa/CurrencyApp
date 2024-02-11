@@ -14,14 +14,14 @@ class CryptoTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.primary
         return label
     }()
-
+    
     let priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,14 +49,14 @@ class CryptoTableViewCell: UITableViewCell {
         label.textColor = UIColor.white
         return label
     }()
-
+    
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         backgroundColor = UIColor.darkGray
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -76,14 +76,10 @@ class CryptoTableViewCell: UITableViewCell {
             priceBackgroundView.backgroundColor = color
             changePercentLabel.textColor = color
             symbolLabel.textColor = color
-        } else {
-            priceBackgroundView.backgroundColor = UIColor.gray
-            changePercentLabel.textColor = UIColor.gray
-            symbolLabel.textColor = UIColor.gray
         }
         logoImageView.image = image
     }
-
+    
     //MARK: - Methods
     private func setupViews() {
         addSubview(priceBackgroundView)
@@ -92,7 +88,7 @@ class CryptoTableViewCell: UITableViewCell {
         addSubview(priceLabel)
         addSubview(changePercentLabel)
         addSubview(symbolLabel)
-
+        
         bringSubviewToFront(logoImageView)
         bringSubviewToFront(nameLabel)
         bringSubviewToFront(priceLabel)
@@ -104,13 +100,13 @@ class CryptoTableViewCell: UITableViewCell {
             logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 55),
             logoImageView.heightAnchor.constraint(equalToConstant: 55),
-
+            
             nameLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 16),
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-
+            
             priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-
+            
             priceBackgroundView.leadingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -8),
             priceBackgroundView.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor, constant: 8),
             priceBackgroundView.topAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -4),
